@@ -6,7 +6,7 @@ import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+const config: SocketIoConfig = { url: 'https://vast-ravine-55500.herokuapp.com/', options: {} };
 
 @NgModule({
   declarations: [

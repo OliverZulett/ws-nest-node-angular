@@ -4,3 +4,6 @@
 
 <input [(ngModel)]="newMessage" (keyup)="$event.keyCode == 13 && sendMessage()" />
 <button (click)="sendMessage()">Send Message</button>
+<hr>
+<!-- <input type="file" onchange="console.log(event.target.files)"> -->
+<input type="file" (change)="sendFile($event)">

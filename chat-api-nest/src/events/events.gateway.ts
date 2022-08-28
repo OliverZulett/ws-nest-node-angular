@@ -13,6 +13,7 @@ import { Server } from 'socket.io';
   cors: {
     origin: '*',
   },
+  maxHttpBufferSize: 1e10
 })
 export class EventsGateway {
   private logger = new Logger(EventsGateway.name);
@@ -29,6 +30,12 @@ export class EventsGateway {
   handleMessage(@MessageBody() message: string) {
     this.logger.debug(message);
     this.server.emit('response', message);
+  }
+
+  @SubscribeMessage('new-file')
+  handleFile(@MessageBody() object: any) {
+    this.logger.debug(object.name);
+    this.server.emit('response', object);
   }
 
   // @SubscribeMessage('message')

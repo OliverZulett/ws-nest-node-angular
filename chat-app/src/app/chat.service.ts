@@ -23,4 +23,10 @@ export class ChatService {
       });
     });
   };
+
+  sendFile(fileObject: any) {
+    this.socket.emit('new-file', fileObject, (status: any) => {
+      console.log(status)
+    });
+  }
 }
